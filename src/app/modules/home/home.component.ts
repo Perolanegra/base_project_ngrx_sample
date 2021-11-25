@@ -12,9 +12,11 @@ export class HomeComponent implements OnInit {
   constructor(
     private store: Store<AppState>,
     private appController: AppController
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     
   }
+
 }

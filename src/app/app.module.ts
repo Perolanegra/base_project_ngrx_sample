@@ -11,6 +11,7 @@ import { AppController } from './modules/core/default/appController';
 import { SharedModule } from './modules/shared/shared.module';
 import { AppMenuComponent } from './modules/menu/app-menu/app-menu.component';
 import { HttpClientModule } from '@angular/common/http';
+import { APIURL } from './modules/core/tokens/app.tokens';
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({ keys: reducerKeys, rehydrate: true })(reducer);
@@ -31,7 +32,10 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     SharedModule,
     HttpClientModule
   ],
-  providers: [AppController],
+  providers: [
+    AppController,
+    { provide: APIURL, useValue: '/pessoa' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

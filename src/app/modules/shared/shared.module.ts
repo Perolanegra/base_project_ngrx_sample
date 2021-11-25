@@ -14,7 +14,7 @@ import { BoxbalancePipe } from './pipes/boxbalance.pipe';
   declarations: [
     MenuComponent,
     HeaderComponent,
-    BoxbalancePipe
+    BoxbalancePipe,
   ],
   exports: [
     MenuComponent,

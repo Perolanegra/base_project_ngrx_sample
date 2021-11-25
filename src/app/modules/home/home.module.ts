@@ -5,15 +5,23 @@ import { SharedModule } from "../shared/shared.module";
 import { MaterialModule } from "../material/material.module";
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeService } from "./home.service";
-import { APIURL } from "../core/tokens/app.tokens";
+import { DynamicControllerComponent } from "../core/dynamic-controller/dynamic-controller.component";
+import { DynamicDirective } from "../core/dynamic-controller/dynamic.directive";
+import { ShopComponent } from "../shop/shop.component";
+import { DynamicService } from "../core/dynamic-controller/dynamic.service";
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [
+    HomeComponent,
+    DynamicControllerComponent,
+    DynamicDirective,
+    ShopComponent
+  ],
   imports: [CommonModule, SharedModule, MaterialModule, HomeRoutingModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     HomeService,
-    { provide: APIURL, useValue: '/pessoa' },
+    DynamicService
   ]
 })
-export class HomeModule {}
+export class HomeModule { }

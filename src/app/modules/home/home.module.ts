@@ -5,13 +5,15 @@ import { SharedModule } from "../shared/shared.module";
 import { MaterialModule } from "../material/material.module";
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeService } from "./home.service";
+import { APIURL } from "../core/tokens/app.tokens";
 
 @NgModule({
   declarations: [HomeComponent],
   imports: [CommonModule, SharedModule, MaterialModule, HomeRoutingModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
-    HomeService
+    HomeService,
+    { provide: APIURL, useValue: '/pessoa' },
   ]
 })
 export class HomeModule {}
